@@ -16,8 +16,10 @@ phases:
     commands:
       - echo Prebuild ops
       - apt-get update -y
-      - apt-get install python3.10 python3.10-dev -y
-      - python3.10 -m pip3 install --upgrade pip3 setuptools wheel
+      - apt-get install python3.10 python3.10-venv python3.10-dev -y
+      - curl -sS https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+      - python3 get-pip.py
+      - python3 -m pip install --upgrade pip setuptools wheel
       - pip3 install -r requirements.txt
   build:
     commands:
